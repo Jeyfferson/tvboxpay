@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atendente Virtual BOXPAY</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/stylecad.css">
+</head>
+<body>
+<div class="container">
+  <h1>Atendimento BOXPAY</h1>
+  <p>Preencha seus dados e nossa equipe entrará em contato para seu teste grátis!</p>
+  <form id="leadForm">
+    <input type="text" id="nome" placeholder="Seu Nome" required>
+    <input type="email" id="email" placeholder="Seu Email" required>
+    <input type="tel" id="celular" placeholder="Seu Celular" required>
+    <button type="submit">Enviar</button>
+  </form>
+  <div class="success" id="successMessage" style="display:none;">Obrigado! Em breve entraremos em contato pelo WhatsApp.</div>
+</div>
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const celular = document.getElementById('celular').value;
+
+  // Aqui você pode integrar ao Google Sheets, Firebase ou Zapier para armazenar os leads automaticamente
+
+  console.log('Lead cadastrado:', { nome, email, celular });
+  document.getElementById('leadForm').reset();
+  document.getElementById('successMessage').style.display = 'block';
+});
+</script>
+<script src="../js/leadForm.js"></script>
+</body>
+</html>
